@@ -1,0 +1,31 @@
+\begin{table}[!t]
+\centering
+\caption{Ablation Study Results. Tier~1: component-level on $n=10{,}000$ synthetic signals. Tier~2: end-to-end 14-day dataset (seed=42, 1~AMF, 100k~UEs). A3 (no queue) validated structurally at 60-day scale ($r=+0.900\to0$, Section~VII). A6 (no weekend) validated via weekday/weekend ratio (Section~VII-A).}
+\label{tab:ablation}
+\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llccccc}
+\toprule
+\textbf{Metric} & \textbf{Interpretation} & \textbf{Full} & \textbf{A1 No LRD} & \textbf{A2 No GARCH} & \textbf{A4 Step onset} & \textbf{A5 Uniform mix} \\\\
+\midrule
+\multicolumn{7}{l}{\textit{\textbf{Tier~1 --- Component-level validation}}} \\
+\midrule
+  Hurst $H$ (fGn signal) & R/S on $n=10{,}000$ fGn output & 0.7394 & 0.5497 (disabled) & --- & --- & --- \\
+  GARCH lag-1 AC($\sigma^2$) & Autocorr of squared $\sigma$ sequence & 0.9488 & --- & 0.0000 (disabled) & --- & --- \\
+\midrule
+\multicolumn{7}{l}{\textit{\textbf{Tier~2 --- End-to-end (14-day window, seed=42)}}} \\
+\midrule
+  Hurst $H$ & RM.RegReqAtt normal rows & 0.784 & --- & --- & 0.784 {{\tiny +0.0\%}} & 0.748 {{\tiny -4.6\%}} \\
+  Diurnal $r$ & vs Telecom Italia CDR & 0.937 & --- & --- & 0.937 {{\tiny +0.0\%}} & 0.740 {{\tiny -21.0\%}} \\
+  GARCH AC & Lag-1 AC $|\Delta$CPU$|$ & 0.793 & --- & --- & 0.794 {{\tiny +0.1\%}} & 0.787 {{\tiny -0.8\%}} \\
+  IF~F1 & Anomaly difficulty (lower=harder) & 0.810 & --- & --- & 0.881 {{\tiny +8.8\%}} & 0.905 {{\tiny +11.8\%}} \\
+  IF~AUC & Anomaly separability & 0.919 & --- & --- & 0.998 {{\tiny +8.6\%}} & 0.999 {{\tiny +8.7\%}} \\
+  CPU--Lat $r$ & Queue coupling (near-zero at 14d, see Sec.VII) & 0.919 & --- & --- & 0.918 {{\tiny -0.1\%}} & 0.902 {{\tiny -1.8\%}} \\
+\bottomrule
+\end{tabular}%
+}
+\begin{tablenotes}\footnotesize
+\item $\Delta$ values show percentage change vs full model.
+\item A3, A6 interpreted structurally --- see text.
+\end{tablenotes}
+\end{table}

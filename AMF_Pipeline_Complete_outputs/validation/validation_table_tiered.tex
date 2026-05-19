@@ -1,0 +1,47 @@
+\begin{table*}[t]
+\centering
+\caption{Tiered Statistical Validation of the Synthetic AMF KPI Dataset. Tier~1: direct AMF/5GC references (operational consistency); Tier~2: indirect traffic-shape proxies (temporal self-similarity only --- not AMF telemetry); Tier~3: synthetic quality baselines. Rows marked [Abs] are absolute comparisons without normalisation. All other shape metrics on min-max normalised [0,\,1] series. \checkmark~MAPE~$<$~15\%; $\sim$~15--30\%; \textbf{!}~$>$30\%.}
+\label{tab:tiered_validation}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llccccc}
+\toprule
+\textbf{Source} & \textbf{Property} & \textbf{KS $p$} & \textbf{Pearson $r$} & \textbf{JS div.} & \textbf{MAPE} & \textbf{Verdict} \\
+\midrule
+\multicolumn{7}{l}{\textit{\textbf{Tier~1 --- Direct AMF / 5GC References}}} \\
+\midrule
+  3. IMC 2025 & CPU scaling rate & 1.000 & 0.985 & 0.4807 & 5.07\% & \checkmark \\
+  3. IMC 2025 & Memory scaling rate & 1.000 & 0.999 & 0.4807 & 1.36\% & \checkmark \\
+  5. Mukute et al. & Reg. latency CDF & 0.000 & 0.011 & 0.2980 & 20.31\% & $\sim$ \\
+  6. 5GC-Bench (OAI) & CPU scaling curve & 0.479 & 0.909 & 0.6339 & 22.48\% & $\sim$ \\
+  4. Open5GS testbed & reg success rate % & --- & --- & --- & 0.00\% & \checkmark \\
+  4. Open5GS testbed & ho success rate % & --- & --- & --- & 0.26\% & \checkmark \\
+  4. Open5GS testbed & pdu success rate % & --- & --- & --- & 0.06\% & \checkmark \\
+  4. Open5GS testbed & reg latency ms mean & --- & --- & --- & 0.54\% & \checkmark \\
+  4. Open5GS testbed & reg latency ms p95 & --- & --- & --- & 30.57\% & \textbf{!} \\
+  4. Open5GS testbed & mem util % mean & --- & --- & --- & 3.46\% & \checkmark \\
+  [Abs] 3GPP TS~23.501 & CM-CONNECTED & --- & --- & --- & 37.5\%$\leftrightarrow$30--40\% & \checkmark \\
+  [Abs] IEEE~10885600 & Reg succ. & --- & --- & --- & 99.76\%$\approx$99.76\% & \checkmark \\
+  [Abs] IEEE~10885600 & HO succ. & --- & --- & --- & 99.17\%$\approx$98.91\% & \checkmark \\
+  [Abs] IEEE~10885600 & PDU succ. & --- & --- & --- & 99.69\%$\approx$99.63\% & \checkmark \\
+\midrule
+\multicolumn{7}{l}{\textit{\textbf{Tier~2 --- Indirect Traffic-Shape Proxies} --- temporal self-similarity only}} \\
+\midrule
+  1. Telecom Italia & Diurnal shape & 0.994 & 0.979 & 0.5361 & 5.79\% & \checkmark \\
+  1. Telecom Italia & Day-of-week & 0.963 & 0.904 & 0.5989 & 12.39\% & \checkmark \\
+  1. Telecom Italia & ACF shape & 0.106 & 0.926 & 0.4501 & 17.03\% & $\sim$ \\
+  1. Telecom Italia & Hurst H (ref=0.740) & --- & --- & --- & 6.29\% & \checkmark \\
+  2. 5G3E (CNAM) & Hurst H (ref=0.593) & --- & --- & --- & 2.30\% & \checkmark \\
+  7. Campo et al. 2024 & CPU CoV (std/mean) & --- & --- & --- & 8.64\% & \checkmark \\
+\midrule
+\multicolumn{7}{l}{\textit{\textbf{Tier~3 --- Synthetic Data Quality Baselines}}} \\
+\midrule
+  Khatiman~et~al.~\cite{khatiman2023} & SDV quality score & --- & --- & --- & --- & $94.1\%$ vs TVAE \\
+  Nugraha~et~al.~\cite{nugraha2025csr} & Anomaly direction & --- & --- & --- & --- & 4/4 match \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item [Abs]: absolute comparison without normalisation.
+\item \textbf{Tier~2}: not AMF telemetry; validates temporal invariants (Hurst $H$, diurnal, DoW) only.
+\item \textbf{Thresholds}: MAPE $<$15\%: Guo~et~al.~\cite{guo2021tnsm}; Pearson $r$$>$0.90: Barlacchi~et~al.~\cite{barlacchi2015}.
+\end{tablenotes}
+\end{table*}
