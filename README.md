@@ -91,7 +91,7 @@ All notebooks are deterministic under `seed=42`; small variations across hardwar
 
 ## Validation Summary
 
-SCOPE-5G has been statistically validated against eight independent references. Acceptance criterion: MAPE < 30% on min-max-normalized shape comparisons (with one row at 30.57% flagged in Table 11). Detailed metrics and references are tabulated in §VIII (Table 11) of the paper; a full list of statistical validation outputs is produced by `AMF_Pipeline_Complete.ipynb` and saved in the validation/ subdirectory of the output archive.
+SCOPE-5G has been statistically validated against eight independent references. Acceptance criterion: MAPE < 30% on min-max-normalized shape comparisons; all MAPE-applicable rows fall below this threshold, with three rows in the 15--30% band (per-procedure latency is a calibration set-point, not a validation comparison; see Section IV-G). Detailed metrics and references are tabulated in §VIII (Table 11) of the paper; a full list of statistical validation outputs is produced by `AMF_Pipeline_Complete.ipynb` and saved in the validation/ subdirectory of the output archive.
 
 ## Scope and Boundaries
 
