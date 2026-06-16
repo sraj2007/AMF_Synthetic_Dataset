@@ -1,6 +1,6 @@
 \begin{table*}[t]
 \centering
-\caption{Tiered Statistical Validation of the Synthetic AMF KPI Dataset. Tier~1: direct AMF/5GC references (operational consistency); Tier~2: indirect traffic-shape proxies (temporal self-similarity only --- not AMF telemetry); Tier~3: synthetic quality baselines. Rows marked [Abs] are absolute comparisons without normalization. All other shape metrics on min-max normalized [0,\,1] series. \checkmark~MAPE~$<$~15\%; $\sim$~15--30\%; \textbf{!}~$>$30\%.}
+\caption{Tiered Statistical Validation of the Synthetic AMF KPI Dataset. Tier~1: direct AMF/5GC references (operational consistency); Tier~2: indirect traffic-shape proxies (temporal self-similarity only --- not AMF telemetry); Tier~3: synthetic quality baselines. Rows marked [Abs] are absolute comparisons without normalisation. All other shape metrics on min-max normalised [0,\,1] series. \checkmark~MAPE~$<$~15\%; $\sim$~15--30\%; \textbf{!}~$>$30\%.}
 \label{tab:tiered_validation}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{llccccc}
@@ -38,7 +38,7 @@
 \bottomrule
 \end{tabular}
 \begin{tablenotes}\footnotesize
-\item [Abs]: absolute comparison without normalization.
+\item [Abs]: absolute comparison without normalisation.
 \item \textbf{Tier~2}: not AMF telemetry; validates temporal invariants (Hurst $H$, diurnal, DoW) only.
 \item \textbf{Thresholds}: MAPE $<$15\%: Guo~et~al.~\cite{guo2021tnsm}; Pearson $r$$>$0.90: Barlacchi~et~al.~\cite{barlacchi2015}.
 \end{tablenotes}
